@@ -82,10 +82,18 @@ body {
 .container {
     width: 100%;
     max-width: 100vw;
-    padding: 20vh 0;
+    padding: 30vh 0 20vh 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
+    z-index: 1;
+    
+    /* Fixed Viewport Mask: Stones disappear before the header */
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 22vh, black 25vh);
+    mask-image: linear-gradient(to bottom, transparent 0, transparent 22vh, black 25vh);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
 }
 
 /* Stone Elements (Glossy Soap style) */
@@ -115,7 +123,7 @@ body {
     background: radial-gradient(circle at 35% 35%, #F5F5F5 0%, #D8D8D8 40%, #C8C8C8 100%);
 }
 
-/* Debossed Text */
+/* Debossed Text & Logo */
 .stone-text {
     font-size: 5vw; /* Reduced from 8vw */
     text-transform: uppercase;
@@ -129,17 +137,44 @@ body {
     transition: var(--transition-base);
 }
 
-/* Hover Effect: Glow & Bounce-X */
+.stone-logo {
+    width: 35vw;
+    max-width: 80%;
+    height: auto;
+    /* Debossed Effect: Blend with stone texture and add directional shadows */
+    mix-blend-mode: multiply; /* Removes white background on light surfaces */
+    filter: grayscale(1) contrast(1.2) brightness(1.1);
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    
+    /* Simulate the text-shadow of the debossed text */
+    filter: grayscale(1) opacity(0.6) drop-shadow(0 2px 1px rgba(255,255,255,0.8)) drop-shadow(0 -1px 1px rgba(0,0,0,0.3));
+}
+
+.stone:hover .stone-logo {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Hover Effect: Glow & Shake - Exact replica from mw-clxd.vercel.app */
 .stone:hover {
-    transform: scale(1.05);
-    padding: 8vw 0;
     z-index: 100;
+    padding: 8vw 0; /* Box becomes taller on hover */
     background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FDFDFD 50%, #E8E8E8 100%);
     box-shadow: 
-        0 0 50px rgba(255, 255, 255, 0.8), /* Glow effect */
+        0 0 50px rgba(255, 255, 255, 0.8), /* Distinct white glow */
         0 15px 35px rgba(0,0,0,0.1),
         inset 5px 5px 15px rgba(255,255,255,1);
     animation: bounceDiagonal 0.8s infinite alternate cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    transition: all 0.3s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+}
+
+.stone-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @keyframes bounceDiagonal {
@@ -152,35 +187,140 @@ body {
     100% { transform: scale(1.1) rotate(-0.5deg); }
 }
 
-/* Navigation Overlay - Small Soap Bar */
-.nav-overlay {
+/* Main Header */
+.main-header {
     position: fixed;
-    top: 2vw;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(15px);
-    padding: 0.8vw 3vw; /* Reduced padding */
-    border-radius: 100vw;
-    display: flex;
-    gap: 3vw;
-    z-index: 1000;
-    box-shadow: 
-        inset 2px 2px 5px rgba(255,255,255,0.4),
-        0 5px 20px rgba(0,0,0,0.05);
+    top: 5vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 3000;
+    pointer-events: none;
+    background: none; /* Transparent background to show design */
+    box-shadow: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.nav-overlay a {
-    text-decoration: none;
-    color: rgba(0,0,0,0.4);
-    font-size: 0.7vw; /* Reduced font size */
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-family: monospace;
+/* Hide header in gallery mode */
+body.gallery-active .main-header {
+    opacity: 0;
+    visibility: hidden;
 }
+
+/* Hide header completely when gallery is active to prevent blocking any interactions */
+body.gallery-active .main-header {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.main-title {
+    font-size: 5vw;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: #fff;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-bottom: 0.5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto; /* Allow title to be interactive if needed */
+}
+
+.cloud-icon {
+    width: 6vw;
+    height: 6vw;
+    margin-right: 1.5vw;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+}
+
+.main-subtitle {
+    font-size: 1.2vw;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow for legibility without background */
+    font-family: monospace;
+    margin-top: -0.5vw;
+}
+
+/* Gallery Overlay */
+#gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 2000;
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#gallery-overlay.active {
+    display: flex;
+}
+
+.gallery-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Gallery Corner Buttons - Matching exact 4th image design */
+.gallery-btn {
+    position: absolute;
+    padding: 2.5vw 3.5vw;
+    border-radius: 100px; /* More rounded */
+    background: #f8f8f8;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Removed white highlights */
+    color: var(--text-color);
+    font-size: 1.4vw;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    cursor: none !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    font-family: inherit;
+    z-index: 2500; /* Ensure buttons are above everything in gallery */
+    
+    /* Elegant debossed text effect */
+    text-shadow: 
+        1px 1px 1px rgba(255, 255, 255, 0.9), 
+        -1px -1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.15);
+}
+
+#page-info { top: 3vw; left: 3vw; pointer-events: none; }
+#back-btn { top: 3vw; right: 3vw; }
+#prev-btn { bottom: 3vw; left: 3vw; }
+#next-btn { bottom: 3vw; right: 3vw; }
 
 /* Responsive Scaling */
 @media (max-width: 768px) {
     .stone-text { font-size: 12vw; }
-    .stone { width: 95vw; }
+    .stone { 
+        width: 95vw; 
+        cursor: pointer;
+    }
+    .gallery-btn {
+        padding: 4vw 10vw;
+        font-size: 4vw;
+        border-radius: 12vw;
+    }
 }
+
+.stone { cursor: pointer; }

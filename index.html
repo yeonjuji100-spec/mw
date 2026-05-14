@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BELLE SCHOOL - Pure Aesthetics</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
@@ -13,55 +13,86 @@
     <div id="custom-cursor"></div>
     <div class="sun"></div>
 
-    <nav class="nav-overlay">
-        <a href="#about">About</a>
-        <a href="#departments">Dept</a>
-        <a href="#portfolio">Work</a>
-        <a href="#companies">Biz</a>
-        <a href="#life">Life</a>
-    </nav>
+    <header class="main-header">
+        <h1 class="main-title">
+            <svg class="cloud-icon" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer circles for translucent effect -->
+                <circle cx="30" cy="55" r="22" fill="#4DB2FF" fill-opacity="0.7" />
+                <circle cx="50" cy="40" r="28" fill="#4DB2FF" fill-opacity="0.8" />
+                <circle cx="75" cy="55" r="22" fill="#4DB2FF" fill-opacity="0.7" />
+                <rect x="30" y="55" width="45" height="22" fill="#4DB2FF" />
+            </svg>AniCloud
+        </h1>
+        <p class="main-subtitle">Find Your Next Anime Above the Clouds</p>
+    </header>
 
     <main class="container">
-        <!-- Hero Stone -->
         <section id="hero" class="stone">
-            <h1 class="stone-text">BELLE</h1>
+            <div class="stone-content">
+                <img src="logo.png" alt="AniCloud Logo" class="stone-logo">
+            </div>
         </section>
 
         <!-- About Stone -->
         <section id="about" class="stone">
-            <h2 class="stone-text">ABOUT</h2>
+            <div class="stone-content">
+                <h2 class="stone-text">ABOUT</h2>
+            </div>
         </section>
 
         <!-- Dept Stone -->
         <section id="departments" class="stone">
-            <h2 class="stone-text">DEPT</h2>
+            <div class="stone-content">
+                <h2 class="stone-text">DEPT</h2>
+            </div>
         </section>
 
         <!-- Work Stone -->
         <section id="portfolio" class="stone">
-            <h2 class="stone-text">WORK</h2>
+            <div class="stone-content">
+                <h2 class="stone-text">WORK</h2>
+            </div>
         </section>
 
         <!-- Portfolio Items -->
         <div class="stone">
-            <h3 class="stone-text">PRJ 01</h3>
+            <div class="stone-content">
+                <h3 class="stone-text">PRJ 01</h3>
+            </div>
         </div>
         <div class="stone">
-            <h3 class="stone-text">PRJ 02</h3>
+            <div class="stone-content">
+                <h3 class="stone-text">PRJ 02</h3>
+            </div>
         </div>
 
         <!-- Biz Stone -->
         <section id="companies" class="stone">
-            <h2 class="stone-text">BIZ</h2>
+            <div class="stone-content">
+                <h2 class="stone-text">BIZ</h2>
+            </div>
         </section>
 
         <!-- Life Stone -->
         <section id="life" class="stone">
-            <h2 class="stone-text">LIFE</h2>
+            <div class="stone-content">
+                <h2 class="stone-text">LIFE</h2>
+            </div>
         </section>
         
         <div style="height: 40vh;"></div> <!-- Bottom Spacer -->
     </main>
+
+    <!-- Gallery Overlay -->
+    <div id="gallery-overlay">
+        <button class="gallery-btn" id="page-info">1 / 3</button>
+        <button class="gallery-btn" id="back-btn">BACK</button>
+        <div class="gallery-image-container">
+            <img id="gallery-img" src="work1.png" alt="Gallery Image">
+        </div>
+        <button class="gallery-btn" id="prev-btn">PREV</button>
+        <button class="gallery-btn" id="next-btn">NEXT</button>
+    </div>
 
     <script src="main.js"></script>
 </body>
