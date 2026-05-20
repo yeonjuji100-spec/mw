@@ -94,6 +94,9 @@ body {
     mask-image: linear-gradient(to bottom, transparent 0, transparent 22vh, black 25vh);
     mask-repeat: no-repeat;
     -webkit-mask-repeat: no-repeat;
+    
+    /* Smooth transition when entering/exiting gallery mode */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 /* Stone Elements (Glossy Soap style) */
@@ -125,7 +128,7 @@ body {
 
 /* Debossed Text & Logo */
 .stone-text {
-    font-size: 5vw; /* Reduced from 8vw */
+    font-size: 2.5vw; /* Reduced to half */
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 400;
@@ -249,7 +252,7 @@ body.gallery-active .main-header {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000;
+    background: transparent;
     z-index: 2000;
     display: none; /* Hidden by default */
     justify-content: center;
@@ -261,6 +264,35 @@ body.gallery-active .main-header {
     display: flex;
 }
 
+/* Gallery Layout Structure */
+.gallery-content-wrapper {
+    display: flex;
+    width: 85vw;
+    height: 75vh;
+    max-width: 1400px;
+    align-items: center;
+    justify-content: center;
+    gap: 4vw;
+    z-index: 10;
+}
+
+.gallery-left-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.gallery-content-wrapper.no-info .gallery-left-col {
+    width: 100%;
+}
+
+.gallery-content-wrapper.has-info .gallery-left-col {
+    width: 48%;
+}
+
 .gallery-image-container {
     width: 100%;
     height: 100%;
@@ -269,45 +301,311 @@ body.gallery-active .main-header {
     align-items: center;
 }
 
+.gallery-content-wrapper.has-info .gallery-left-col .gallery-image-container {
+    justify-content: center; /* Center the image in the left column for perfect symmetry */
+}
+
 .gallery-image-container img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    /* Removed border smudging gradient mask */
+    mask-image: none;
+    -webkit-mask-image: none;
+    transition: all 0.3s ease;
 }
 
-/* Gallery Corner Buttons - Matching exact 4th image design */
+.gallery-right-col {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    max-height: 100%;
+    color: #fff;
+    font-family: 'EB Garamond', serif;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 35px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateX(30px);
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gallery-content-wrapper.has-info .gallery-right-col {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.gallery-content-wrapper.no-info .gallery-right-col {
+    display: none;
+}
+
+#sidebar-title {
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+.sidebar-synopsis-container {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 24px;
+}
+
+#sidebar-synopsis {
+    word-break: keep-all;
+    text-align: justify;
+}
+
+#more-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0 0 0 8px;
+    cursor: none !important;
+    display: inline;
+    vertical-align: baseline;
+    font-family: inherit;
+    transition: color 0.2s;
+}
+
+#more-btn:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#sidebar-tags {
+    margin-top: auto;
+}
+
+/* Recommendation Badge (e.g. 라프텔 추천작) */
+.recommend-badge {
+    background: linear-gradient(135deg, #E040FB, #00E5FF);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.25);
+    text-transform: uppercase;
+}
+
+/* Meta Row: Genres | Medium, Age rating, Average rating */
+.sidebar-meta-row {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+#sidebar-genre-medium, #info-genre-medium {
+    letter-spacing: 0.02em;
+}
+
+/* Age Circle Badge */
+.meta-age {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 800;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 1.5px solid #fff;
+}
+
+.meta-age.age-all {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+}
+
+.meta-age.age-12 {
+    background-color: #2196F3; /* Blue */
+    color: #fff;
+}
+
+.meta-age.age-15 {
+    background-color: #FFB300; /* Yellow */
+    color: #000;
+}
+
+.meta-age.age-19 {
+    background-color: #F44336; /* Red */
+    color: #fff;
+}
+
+/* Average Rating star */
+.sidebar-avg-rating {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    color: #FFD54F;
+    font-weight: 700;
+}
+
+.star-icon {
+    font-size: 1.1rem;
+    margin-right: 4px;
+}
+
+/* Interactive elements row */
+.sidebar-interactive-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 12px 20px;
+    margin-bottom: 25px;
+}
+
+.rating-stars-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stars-label {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+
+.stars-input {
+    display: flex;
+    gap: 4px;
+}
+
+.stars-input .star {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: none !important; /* Use custom cursor */
+    transition: color 0.15s, transform 0.15s;
+}
+
+.stars-input .star.hover,
+.stars-input .star.active {
+    color: #FFD54F;
+    transform: scale(1.15);
+}
+
+/* Favorite ("찜하기") Button */
+.favorite-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: none !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.favorite-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.favorite-btn:active {
+    transform: scale(0.97);
+}
+
+.favorite-btn.active {
+    background: rgba(233, 30, 99, 0.15);
+    border-color: rgba(233, 30, 99, 0.4);
+    color: #FF4081;
+}
+
+.favorite-btn.active .heart-icon {
+    color: #E91E63;
+}
+
+/* Hide stones when gallery overlay is open */
+body.gallery-active .container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Gallery Corner Buttons - Fluffy Cloud Shape */
 .gallery-btn {
     position: absolute;
-    padding: 2.5vw 3.5vw;
-    border-radius: 100px; /* More rounded */
-    background: #f8f8f8;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.2); /* Removed white highlights */
-    color: var(--text-color);
-    font-size: 1.4vw;
-    font-weight: 500;
-    letter-spacing: 0.25em;
+    padding: 1.8vw 3vw;
+    background: transparent;
+    color: #555555;
+    font-size: 1.35vw;
+    font-weight: 800;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     cursor: none !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: none;
     font-family: inherit;
-    z-index: 2500; /* Ensure buttons are above everything in gallery */
-    
-    /* Elegant debossed text effect */
-    text-shadow: 
-        1px 1px 1px rgba(255, 255, 255, 0.9), 
-        -1px -1px 1px rgba(0, 0, 0, 0.15);
+    z-index: 2500;
+    text-shadow: none;
+    /* drop-shadow applies to whole visual including pseudo-elements */
+    filter: drop-shadow(2px 6px 12px rgba(0,0,0,0.18));
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Cloud main body */
+.gallery-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ddeef8;
+    border-radius: 50px;
+    z-index: -1;
+}
+
+/* Cloud top bumps: left large + right smaller via box-shadow */
+.gallery-btn::after {
+    content: '';
+    position: absolute;
+    width: 46%;
+    height: 100%;
+    top: -42%;
+    left: 8%;
+    background: #ddeef8;
+    border-radius: 50%;
+    z-index: -1;
+    /* second bump on the right side */
+    box-shadow: 2.6vw 0.4vw 0 -0.1vw #ddeef8;
 }
 
 .gallery-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.15);
+    transform: scale(1.07) translateY(-3px);
+    filter: drop-shadow(2px 8px 18px rgba(0,0,0,0.24));
 }
 
-#page-info { top: 3vw; left: 3vw; pointer-events: none; }
-#back-btn { top: 3vw; right: 3vw; }
-#prev-btn { bottom: 3vw; left: 3vw; }
-#next-btn { bottom: 3vw; right: 3vw; }
+#page-info { top: 4vw; left: 3vw; pointer-events: none; }
+#back-btn  { top: 4vw; right: 3vw; }
+#prev-btn  { bottom: 3vw; left: 3vw; }
+#next-btn  { bottom: 3vw; right: 3vw; }
 
 /* Responsive Scaling */
 @media (max-width: 768px) {
@@ -324,3 +622,135 @@ body.gallery-active .main-header {
 }
 
 .stone { cursor: pointer; }
+
+/* Info Overlay & Card styling */
+#info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 3000; /* Higher than gallery-overlay */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#info-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: #fff;
+    font-family: 'EB Garamond', serif;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+#info-overlay.active .info-card {
+    transform: translateY(0);
+}
+
+#info-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 32px;
+    cursor: none !important; /* Keep custom cursor */
+    transition: color 0.2s;
+}
+
+#info-close-btn:hover {
+    color: #fff;
+}
+
+.info-title {
+    font-size: 2.2rem;
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.info-section {
+    margin-bottom: 24px;
+}
+
+.info-section-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.info-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: justify;
+    word-break: keep-all;
+}
+
+.info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.info-tag {
+    background: rgba(232, 234, 246, 0.95);
+    color: #5C6BC0;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.info-tag:hover {
+    transform: scale(1.05);
+}
+
+#info-btn {
+    bottom: 3vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#info-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+    #info-btn {
+        bottom: 3vw;
+        padding: 4vw 8vw;
+        font-size: 3.5vw;
+        border-radius: 12vw;
+    }
+}
+
