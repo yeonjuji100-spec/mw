@@ -328,6 +328,170 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             ]
         },
+        'departments': {
+            hasInfo: true,
+            items: [
+                {
+                    image: 'haikyuu.png',
+                    title: '하이큐!!',
+                    synopsis: '배구를 향한 열정으로 가득 찬 소년 \'히나타 쇼요\'는 중학교 시절 \'작은 거인\'에게 감명 받아 배구부에 들어갑니다. 비록 단 한 번의 시합만 하고 졸업했지만 카라스노 고교 배구부에 입학하고, 그곳에서 천재 세터 \'카게야마 토비오\'와 운명적으로 만나게 됩니다. 처음엔 서로 으르렁거리던 두 사람이지만, 이내 최강의 콤비가 되어 전국 최고를 향한 도전을 시작합니다.',
+                    tags: ['#스포츠', '#배구', '#청춘', '#성장물', '#팀워크', '#열혈물', '#학원물'],
+                    genres: '스포츠·청춘·성장',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.9',
+                    rankBadge: '스포츠 애니 역대 1위'
+                },
+                {
+                    image: 'kuroko.png',
+                    title: '쿠로코의 농구',
+                    synopsis: '\'기적의 세대\'라 불리는 최강 중학교 농구부 출신 선수들이 각지의 고교로 흩어진 후, 그 그림자 같은 존재였던 \'쿠로코 테츠야\'가 신인 에이스 \'카가미 타이가\'와 함께 새로운 팀을 이끌며 \'기적의 세대\'를 하나씩 꺾어나가는 이야기입니다. 압도적인 능력을 가진 각 캐릭터들의 개성 넘치는 대결이 스포츠 배틀물의 재미를 극대화합니다.',
+                    tags: ['#스포츠', '#농구', '#능력물', '#배틀물', '#우정', '#성장물', '#학원물'],
+                    genres: '스포츠·농구·배틀',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.8',
+                    rankBadge: '인기 스포츠 배틀물'
+                },
+                {
+                    image: 'slamdunk.png',
+                    title: '슬램덩크',
+                    synopsis: '농구를 전혀 모르는 문제아 \'강백호\'는 짝사랑하는 소녀 \'채소연\'의 말 한마디에 농구를 시작합니다. 타고난 신체 능력으로 빠르게 성장하는 강백호는 북산 고교 농구부에서 \'서태웅\', \'채치수\' 등과 함께 전국 제패를 향한 여정을 걷습니다. 코믹한 요소와 뜨거운 농구 장면이 절묘하게 어우러진, 시대를 초월한 스포츠 만화의 역대급 명작입니다.',
+                    tags: ['#스포츠', '#농구', '#성장물', '#우정', '#열혈물', '#코미디', '#올타임 명작'],
+                    genres: '스포츠·농구·성장',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.9',
+                    rankBadge: '역대 스포츠 최고 명작'
+                },
+                {
+                    image: 'bluelock.png',
+                    title: '블루 록',
+                    synopsis: '일본 축구가 세계의 벽을 뛰어넘기 위해 300명의 고교 스트라이커를 한 건물에 가두고 단 한 명의 천하제일 에고이스트 스트라이커를 선발하는 프로젝트 \'블루 록\'. 평범한 스트라이커 \'이사기 요이치\'는 이 기묘한 선발 프로그램에 참가하며 자신만의 축구 스타일과 에고를 각성시켜 나갑니다. 치열한 생존 경쟁 속에서 성장하는 스트라이커들의 이야기가 펼쳐집니다.',
+                    tags: ['#스포츠', '#축구', '#생존게임', '#성장물', '#배틀물', '#에고이즘', '#이능력'],
+                    genres: '스포츠·축구·성장',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.8',
+                    rankBadge: '트렌디 축구 애니'
+                },
+                {
+                    image: 'aceofdiamond.png',
+                    title: '다이아몬드 에이스',
+                    synopsis: '뛰어난 구종을 가지고 있지만 제구력이 없는 투수 \'사와무라 에이지\'는 도쿄의 명문 세이도 고교 야구부에 스카우트됩니다. 엄청난 재능을 가진 동료들 사이에서 에이스 넘버를 쟁취하기 위한 치열한 노력과 성장의 이야기가 펼쳐집니다. 구체적이고 현실적인 야구 묘사와 개성 넘치는 캐릭터들이 매력적인 야구 애니의 명작입니다.',
+                    tags: ['#스포츠', '#야구', '#성장물', '#청춘', '#팀워크', '#열혈물', '#학원물'],
+                    genres: '스포츠·야구·성장',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.7',
+                    rankBadge: '야구 애니 추천작'
+                },
+                {
+                    image: 'chihayafuru.png',
+                    title: '치하야후루',
+                    synopsis: '어릴 때 카루타 선수 \'아라타\'를 만나 카루타의 매력에 빠진 소녀 \'아야세 치하야\'. 중학교 때 아라타와 헤어진 뒤에도 카루타를 향한 열정을 잃지 않고, 고등학교에 입학해 소꿉친구 \'마치다 타이치\'와 함께 카루타부를 창설합니다. 백인일수(百人一首) 카루타를 소재로 한 청춘 스포츠물로, 섬세한 감정 묘사와 박력 넘치는 경기 장면이 돋보이는 명작입니다. 전통 카드 게임을 둘러싼 청춘과 사랑, 우정의 이야기가 아름답게 펼쳐집니다.',
+                    tags: ['#스포츠', '#카루타', '#청춘', '#로맨스', '#성장물', '#우정', '#학원물', '#시詩'],
+                    genres: '스포츠·청춘·로맨스',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.9',
+                    rankBadge: '스포츠 로맨스 명작'
+                },
+                {
+                    image: 'yurionice.png',
+                    title: '유리!!! on ICE',
+                    synopsis: '세계 선수권에서 최하위를 기록하고 은퇴를 고민하던 일본의 피겨스케이팅 선수 \'카츠키 유리\'. 유리의 연기에 반한 세계 챔피언 \'빅토르 니키포로프\'가 갑자기 일본으로 날아와 그의 코치를 자처합니다. 두 사람의 인연을 중심으로 각국의 개성 넘치는 스케이터들과 벌이는 그랑프리 시리즈의 여정을 그립니다. 아름다운 빙판 위의 연기와 선수들의 진심 어린 성장이 감동적으로 담겨 있습니다.',
+                    tags: ['#스포츠', '#피겨스케이팅', '#성장물', '#BL', '#청춘', '#드라마', '#감동적인'],
+                    genres: '스포츠·피겨·드라마',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.8',
+                    rankBadge: '피겨 스포츠 애니 1위'
+                }
+            ]
+        },
+        'portfolio': {
+            hasInfo: true,
+            items: [
+                {
+                    image: 'toradora.png',
+                    title: '토라도라!',
+                    synopsis: '겉모습은 무섭지만 사실 순한 소년 \'타이가 료지\'와 작은 체구에 사나운 성격의 소녀 \'아이사카 타이가\'. 서로의 짝사랑을 이루어주기 위해 협력하던 두 사람은 함께 시간을 보내며 점차 진심을 깨달아 가기 시작합니다. 오해와 질투, 솔직하지 못한 감정들이 뒤엉키며 달콤 쌉싸름하게 펼쳐지는 청춘 러브코미디의 명작입니다. 섬세한 감정 묘사와 매력적인 캐릭터들로 로맨스 애니의 정점으로 손꼽힙니다.',
+                    tags: ['#로맨스', '#코미디', '#청춘', '#학원물', '#럽코', '#성장물', '#감동적인'],
+                    genres: '로맨스·코미디·청춘',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.9',
+                    rankBadge: '로맨스 애니 역대 1위'
+                },
+                {
+                    image: 'horimiya.png',
+                    title: '호리미야',
+                    synopsis: '학교에서는 완벽한 인기 소녀지만 집에서는 가사와 남동생 돌봄에 바쁜 \'호리 쿄코\'. 학교에서는 어둡고 존재감 없는 \'미야무라 이즈미\'는 사실 귀걸이와 문신으로 가득한 다른 면을 숨기고 있습니다. 우연히 서로의 비밀을 알게 된 두 사람은 점차 가까워지며 순수하고 설레는 사랑을 키워나갑니다. 학교 안팎에서 다른 모습을 가진 두 주인공의 자연스럽고 따뜻한 연애를 담은 로맨스 명작입니다.',
+                    tags: ['#로맨스', '#학원물', '#일상', '#청춘', '#순정', '#코미디', '#힐링물'],
+                    genres: '로맨스·일상·청춘',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.8',
+                    rankBadge: '설레는 순정 로맨스'
+                },
+                {
+                    image: 'anohana.png',
+                    title: '그 날 본 꽃의 이름을<br>우리는 아직 모른다',
+                    synopsis: '어린 시절 소꿉친구들과의 사고로 갑자기 세상을 떠난 \'혼마 메이코(멘마)\'. 몇 년이 지난 후, 은둔하며 살던 \'진탄\'앞에 멘마의 유령이 나타납니다. 뿔뿔이 흩어졌던 소꿉친구들이 다시 모여 멘마의 소원을 이루어주기 위해 함께하면서, 서로 오해하고 미뤄두었던 감정들을 마주하게 됩니다. 잊지 못할 그리움과 슬픔, 그리고 사랑이 뒤섞인 눈물 없이 볼 수 없는 감동 로맨스입니다.',
+                    tags: ['#로맨스', '#드라마', '#감동적인', '#청춘', '#우정', '#그리움', '#명작'],
+                    genres: '로맨스·드라마·감동',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.9',
+                    rankBadge: '최고의 감동 로맨스'
+                },
+                {
+                    image: 'shigatsu.png',
+                    title: '4월은 너의 거짓말',
+                    synopsis: '천재 피아니스트였지만 어머니의 죽음 이후 건반 소리가 들리지 않게 된 소년 \'아리마 코세이\'. 무채색처럼 변해버린 그의 일상에 바이올리니스트 \'미야조노 카오리\'가 혜성처럼 나타납니다. 자유롭고 화려하게 연주하는 카오리와 함께하며 코세이는 다시 음악을 마주하게 됩니다. 음악과 청춘, 그리고 애잔한 사랑이 아름답게 교차하는, 보는 내내 눈물이 멈추지 않는 감동의 명작입니다.',
+                    tags: ['#로맨스', '#음악', '#감동적인', '#드라마', '#청춘', '#피아노', '#명작'],
+                    genres: '로맨스·음악·드라마',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.9',
+                    rankBadge: '최고 감동 음악 로맨스'
+                },
+                {
+                    image: 'tokikake.png',
+                    title: '시간을 달리는 소녀',
+                    synopsis: '평범한 여고생 \'마코토\'는 어느 날 우연한 사고로 시간을 뛰어넘는 능력인 \'타임리프\'를 얻게 됩니다. 처음에는 일상의 작은 실수들을 되돌리는 데 사용하지만, 타임리프에는 반드시 대가가 따른다는 것을 깨닫게 됩니다. 절친한 친구 \'치아키\'와의 관계, 그리고 그 속에 숨겨진 비밀이 밝혀지며 가슴 시린 청춘 로맨스가 펼쳐집니다. 세월이 지나도 변치 않는 감동으로 수많은 팬들의 사랑을 받는 로맨스 명작 애니 영화입니다.',
+                    tags: ['#로맨스', '#SF', '#청춘', '#타임리프', '#감동적인', '#드라마', '#명작'],
+                    genres: '로맨스·SF·청춘',
+                    medium: '극장판',
+                    age: '12',
+                    rating: '4.9',
+                    rankBadge: '로맨스 애니 영화 명작'
+                },
+                {
+                    image: 'kimitodoke.png',
+                    title: '너에게 닿기를',
+                    synopsis: '귀신같은 외모 탓에 친구 사귀기가 어려운 고등학생 \'사와코\'. 반의 인기남 \'카제하야\'만이 그녀에게 밝게 말을 걸어주고, 사와코는 그를 동경하기 시작합니다. 카제하야 역시 순수한 사와코에게 특별한 감정을 느끼지만, 두 사람은 서로의 마음을 몰라 엇갈리기만 합니다. 오해와 순수한 마음이 부딪히는 과정이 너무나 사랑스러운, 순정 로맨스의 정석 같은 작품입니다.',
+                    tags: ['#로맨스', '#순정', '#청춘', '#학원물', '#성장물', '#달달함', '#힐링물'],
+                    genres: '로맨스·순정·청춘',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.8',
+                    rankBadge: '순정 로맨스의 정석'
+                },
+                {
+                    image: 'aonohako.png',
+                    title: '푸른 상자',
+                    synopsis: '배드민턴부 소속의 소년 \'타이가\'는 같은 학교 농구부의 에이스이자 꿈에서 만난 소녀 \'치나츠\'와 이루어질 수 없는 상황에서 점점 가까워집니다. 두 사람이 우연히 같은 집에서 함께 생활하게 되며 매일 가까이에서 서로를 느끼게 됩니다. 설레는 감정을 감추면서도 진심을 향해 나아가는 두 사람의 청춘이 풋풋하고 아름답게 그려지는 최신 인기 로맨스입니다.',
+                    tags: ['#로맨스', '#스포츠', '#청춘', '#학원물', '#동거', '#달달함', '#성장물'],
+                    genres: '로맨스·청춘·스포츠',
+                    medium: 'TVA',
+                    age: '12',
+                    rating: '4.8',
+                    rankBadge: '최신 인기 청춘 로맨스'
+                }
+            ]
+        },
         'default': {
             hasInfo: false,
             items: [
@@ -415,8 +579,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Populate sidebar title
-            sidebarTitle.textContent = activeItem.title;
+            // Populate sidebar title (innerHTML to support <br> line breaks)
+            sidebarTitle.innerHTML = activeItem.title;
 
             // Truncate synopsis and append button inline
             const maxChars = 110;
@@ -438,7 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Pre-populate modal overlay content in case "...더 보기" is clicked
-            infoTitle.textContent = activeItem.title;
+            infoTitle.innerHTML = activeItem.title;
             infoSynopsis.textContent = activeItem.synopsis;
             infoTagsContainer.innerHTML = '';
             activeItem.tags.forEach(tag => {
@@ -459,6 +623,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', (e) => {
         const stone = e.target.closest('.stone');
         if (stone) {
+            // Board stone → open bulletin board
+            if (stone.classList.contains('board-stone')) {
+                openBoard();
+                return;
+            }
+
+            // Link stone → open external link
+            if (stone.classList.contains('link-stone')) {
+                const link = stone.querySelector('a.stone-link');
+                if (link) {
+                    window.open(link.href, '_blank', 'noopener,noreferrer');
+                }
+                return;
+            }
+
+            // Info stone → do nothing on click
+            if (stone.classList.contains('info-stone')) {
+                return;
+            }
+
             console.log('Stone clicked:', stone.id || 'unnamed stone');
             const stoneId = stone.id || 'default';
             activeStoneData = stoneData[stoneId] || stoneData['default'];
@@ -597,4 +781,106 @@ document.addEventListener('DOMContentLoaded', () => {
             cursor.style.scale = '1';
         }
     });
+
+    // ── Board (자유게시판) Logic ──────────────────────────────
+    const boardOverlay  = document.getElementById('board-overlay');
+    const boardBackBtn  = document.getElementById('board-back-btn');
+    const writeBtn      = document.getElementById('write-btn');
+    const submitPostBtn = document.getElementById('submit-post-btn');
+    const cancelWriteBtn= document.getElementById('cancel-write-btn');
+    const backToListBtn = document.getElementById('back-to-list-btn');
+    const deletePostBtn = document.getElementById('delete-post-btn');
+
+    let currentPostId = null;
+
+    function getBoardPosts() {
+        return JSON.parse(localStorage.getItem('boardPosts') || '[]');
+    }
+    function saveBoardPosts(posts) {
+        localStorage.setItem('boardPosts', JSON.stringify(posts));
+    }
+
+    function openBoard() {
+        boardOverlay.classList.add('active');
+        document.body.classList.add('gallery-active');
+        showListView();
+    }
+    function closeBoard() {
+        boardOverlay.classList.remove('active');
+        document.body.classList.remove('gallery-active');
+    }
+
+    function setView(viewId) {
+        ['board-list-view','board-write-view','board-detail-view'].forEach(id => {
+            document.getElementById(id).classList.remove('active');
+        });
+        document.getElementById(viewId).classList.add('active');
+    }
+
+    function showListView() {
+        setView('board-list-view');
+        renderPostList();
+    }
+    function showWriteView() {
+        setView('board-write-view');
+        document.getElementById('post-title-input').value   = '';
+        document.getElementById('post-author-input').value  = '';
+        document.getElementById('post-content-input').value = '';
+    }
+    function showDetailView(postId) {
+        const post = getBoardPosts().find(p => p.id === postId);
+        if (!post) return;
+        currentPostId = postId;
+        setView('board-detail-view');
+        document.getElementById('detail-title').textContent   = post.title;
+        document.getElementById('detail-author').textContent  = '✍️ ' + post.author;
+        document.getElementById('detail-date').textContent    = '📅 ' + post.date;
+        document.getElementById('detail-content').textContent = post.content;
+    }
+
+    function renderPostList() {
+        const posts    = getBoardPosts();
+        const listEl   = document.getElementById('post-list');
+        const emptyEl  = document.getElementById('post-empty');
+        listEl.innerHTML = '';
+        if (posts.length === 0) { emptyEl.style.display = 'block'; return; }
+        emptyEl.style.display = 'none';
+        posts.slice().reverse().forEach((post, idx) => {
+            const item = document.createElement('div');
+            item.className = 'post-item';
+            item.innerHTML = `
+                <span class="post-num">${posts.length - idx}</span>
+                <span class="post-title-text">${post.title}</span>
+                <span class="post-author-cell">${post.author}</span>
+                <span class="post-date-cell">${post.date}</span>`;
+            item.addEventListener('click', (e) => { e.stopPropagation(); showDetailView(post.id); });
+            listEl.appendChild(item);
+        });
+    }
+
+    // Board event listeners
+    boardBackBtn.addEventListener('click',  (e) => { e.stopPropagation(); closeBoard(); });
+    writeBtn.addEventListener('click',      (e) => { e.stopPropagation(); showWriteView(); });
+    cancelWriteBtn.addEventListener('click',(e) => { e.stopPropagation(); showListView(); });
+    backToListBtn.addEventListener('click', (e) => { e.stopPropagation(); showListView(); });
+
+    submitPostBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title   = document.getElementById('post-title-input').value.trim();
+        const author  = document.getElementById('post-author-input').value.trim() || '익명';
+        const content = document.getElementById('post-content-input').value.trim();
+        if (!title || !content) { alert('제목과 내용을 입력해주세요.'); return; }
+        const posts = getBoardPosts();
+        posts.push({ id: Date.now(), title, author, content, date: new Date().toLocaleDateString('ko-KR') });
+        saveBoardPosts(posts);
+        showListView();
+    });
+
+    deletePostBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!confirm('이 게시글을 삭제하시겠습니까?')) return;
+        saveBoardPosts(getBoardPosts().filter(p => p.id !== currentPostId));
+        showListView();
+    });
 });
+

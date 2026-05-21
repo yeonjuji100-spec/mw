@@ -40,47 +40,59 @@
             </div>
         </section>
 
-        <!-- Dept Stone -->
+        <!-- 스포츠 Stone -->
         <section id="departments" class="stone">
             <div class="stone-content">
-                <h2 class="stone-text">DEPT</h2>
+                <h2 class="stone-text">스포츠</h2>
             </div>
         </section>
 
-        <!-- Work Stone -->
+        <!-- 로맨스 Stone -->
         <section id="portfolio" class="stone">
             <div class="stone-content">
-                <h2 class="stone-text">WORK</h2>
+                <h2 class="stone-text">로맨스</h2>
             </div>
         </section>
 
         <!-- Portfolio Items -->
-        <div class="stone">
+        <!-- 보러가기 Stone -->
+        <div class="stone info-stone" id="streaming-stone">
             <div class="stone-content">
-                <h3 class="stone-text">PRJ 01</h3>
+                <div class="streaming-info">
+                    <h3 class="streaming-title">보러가기</h3>
+                    <div class="ott-buttons">
+                        <a href="https://laftel.net/" target="_blank" rel="noopener noreferrer" class="ott-btn laftel" onclick="event.stopPropagation()">Laftel</a>
+                        <a href="https://www.netflix.com/kr/" target="_blank" rel="noopener noreferrer" class="ott-btn netflix" onclick="event.stopPropagation()">Netflix</a>
+                        <a href="https://www.wavve.com/" target="_blank" rel="noopener noreferrer" class="ott-btn wavve" onclick="event.stopPropagation()">Wavve</a>
+                        <a href="https://www.tving.com/onboarding" target="_blank" rel="noopener noreferrer" class="ott-btn tving" onclick="event.stopPropagation()">Tving</a>
+                    </div>
+                    <p class="streaming-disclaimer">
+                        Anicloud는 애니메이션 스트리밍을 직접 제공하지 않으며,<br>모든 시청 링크는 공식 플랫폼으로 연결됩니다.
+                    </p>
+                </div>
             </div>
         </div>
-        <div class="stone">
+        <!-- 자유게시판 Stone -->
+        <div class="stone board-stone" id="board">
             <div class="stone-content">
-                <h3 class="stone-text">PRJ 02</h3>
+                <h3 class="stone-text">자유게시판</h3>
             </div>
         </div>
 
         <!-- Biz Stone -->
-        <section id="companies" class="stone">
+        <section id="companies" class="stone info-stone">
             <div class="stone-content">
-                <h2 class="stone-text">BIZ</h2>
+                <div class="biz-info">
+                    <h3>Anicloud</h3>
+                    <p>애니메이션 추천 및 정보 제공 사이트</p>
+                    <p>Anicloud는 애니메이션 추천 및 정보 제공을 목적으로 운영됩니다.<br>각 작품의 저작권은 원저작권자 및 제작사에 있습니다.</p>
+                    <p>Contact: yeonjuji100@gmail.com</p>
+                    <p>© 2026 Anicloud. All rights reserved.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Life Stone -->
-        <section id="life" class="stone">
-            <div class="stone-content">
-                <h2 class="stone-text">LIFE</h2>
-            </div>
-        </section>
-        
-        <div style="height: 40vh;"></div> <!-- Bottom Spacer -->
+
     </main>
 
     <!-- Gallery Overlay -->
@@ -165,6 +177,61 @@
                     <h3 class="info-section-title">태그</h3>
                     <div class="info-tags" id="info-tags-container"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Board Overlay -->
+    <div id="board-overlay">
+        <button class="gallery-btn" id="board-back-btn">BACK</button>
+        <div id="board-container">
+            <!-- List View -->
+            <div id="board-list-view">
+                <div class="board-header">
+                    <h2 class="board-title">✦ 자유게시판</h2>
+                    <button id="write-btn" class="board-action-btn">✏️ 글쓰기</button>
+                </div>
+                <div id="post-list-container">
+                    <div id="post-list-header" class="post-list-header">
+                        <span class="col-num">번호</span>
+                        <span class="col-title">제목</span>
+                        <span class="col-author">작성자</span>
+                        <span class="col-date">날짜</span>
+                    </div>
+                    <div id="post-list"></div>
+                    <div id="post-empty">
+                        <p>🌸 아직 작성된 게시글이 없습니다.</p>
+                        <p>첫 번째 글을 작성해보세요!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Write View -->
+            <div id="board-write-view">
+                <div class="board-header">
+                    <h2 class="board-title">✦ 글쓰기</h2>
+                </div>
+                <div class="board-form">
+                    <input type="text" id="post-title-input" class="board-input" placeholder="제목을 입력하세요">
+                    <input type="text" id="post-author-input" class="board-input" placeholder="작성자 이름 (미입력 시 익명)">
+                    <textarea id="post-content-input" class="board-textarea" placeholder="내용을 자유롭게 작성하세요..."></textarea>
+                    <div class="board-form-btns">
+                        <button id="cancel-write-btn" class="board-secondary-btn">취소</button>
+                        <button id="submit-post-btn" class="board-action-btn">등록하기</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Detail View -->
+            <div id="board-detail-view">
+                <div class="board-header">
+                    <h2 id="detail-title" class="board-title"></h2>
+                    <button id="delete-post-btn" class="board-delete-btn">🗑️ 삭제</button>
+                </div>
+                <div class="board-detail-meta">
+                    <span id="detail-author"></span>
+                    <span id="detail-date"></span>
+                </div>
+                <div id="detail-content" class="board-detail-content"></div>
+                <button id="back-to-list-btn" class="board-secondary-btn">← 목록으로</button>
             </div>
         </div>
     </div>
