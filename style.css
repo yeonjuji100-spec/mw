@@ -3,7 +3,7 @@
     --bg-bottom: rgba(255, 255, 255, 0.1);
     --stone-even: #E8E8E8;
     --stone-odd: #CCC;
-    --text-color: #D8D8D8;
+    --text-color: #a0a0a0;
     --transition-base: 1s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -101,8 +101,8 @@ body {
 
 /* Stone Elements (Cloud / Blob style) */
 .stone {
-    width: 45vw; /* Reduced from 60vw */
-    padding: 6vw 0;
+    width: 48vw;
+    padding: 7.5vw 0;
     margin: 2vw 0; /* Removed negative margins to prevent overlap */
     display: flex;
     justify-content: center;
@@ -822,7 +822,11 @@ body.gallery-active .container {
     position: relative;
 }
 
-#board-back-btn { top: 4vw; right: 3vw; }
+#board-back-btn { 
+    top: 4vw; right: 3vw; 
+    border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; 
+    background: radial-gradient(circle at 35% 35%, #F5F5F5 0%, #D8D8D8 40%, #C8C8C8 100%);
+}
 
 /* Views: only one visible at a time */
 #board-list-view,
@@ -851,6 +855,14 @@ body.gallery-active .container {
     font-size: 1.7rem;
     font-weight: 700;
     letter-spacing: 0.06em;
+}
+
+.board-subtitle {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 6px;
+    letter-spacing: 0.02em;
+    font-weight: 400;
 }
 
 /* Buttons */
@@ -1126,6 +1138,7 @@ body.gallery-active .container {
     transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.6);
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
@@ -1156,9 +1169,276 @@ body.gallery-active .container {
     pointer-events: none;
 }
 
+/* ── Top Button ── */
+#top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 55px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(240,240,240,0.6));
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        -5px -5px 15px rgba(255,255,255,0.5),
+        5px 5px 15px rgba(0,0,0,0.1),
+        inset -2px -2px 5px rgba(0,0,0,0.05),
+        inset 2px 2px 5px rgba(255,255,255,0.5);
+    color: #888;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-align: center;
+    cursor: pointer !important;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+#top-btn.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#top-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    color: #555;
+    box-shadow: 
+        -5px -5px 15px rgba(255,255,255,0.6),
+        5px 5px 20px rgba(0,0,0,0.15),
+        inset -2px -2px 5px rgba(0,0,0,0.05),
+        inset 2px 2px 5px rgba(255,255,255,0.6);
+}
+
+#top-btn:active {
+    transform: translateY(1px) scale(0.95);
+    box-shadow: 
+        inset 3px 3px 10px rgba(0,0,0,0.1),
+        inset -3px -3px 10px rgba(255,255,255,0.5);
+}
+
 @media (max-width: 768px) {
     .streaming-title { font-size: 6vw; margin-bottom: 4vw; }
     .ott-buttons { gap: 3vw; margin-bottom: 5vw; }
     .ott-btn { font-size: 3.5vw; padding: 2.5vw 5vw; }
     .streaming-disclaimer { font-size: 2.8vw; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE STYLES (max-width: 768px)
+   PC 스타일은 전혀 변경하지 않음
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* 커스텀 커서 숨김 (모바일은 터치) */
+    #custom-cursor { display: none; }
+    * { cursor: auto !important; }
+    .stone { cursor: pointer !important; }
+    .board-action-btn,
+    .board-secondary-btn,
+    .board-delete-btn,
+    .favorite-btn,
+    .stars-input .star,
+    #more-btn,
+    #info-close-btn { cursor: pointer !important; }
+    .board-input,
+    .board-textarea { cursor: text !important; }
+    .ott-btn { cursor: pointer !important; }
+
+    /* ── 헤더 ── */
+    .main-header { top: 3vw; }
+    .main-title { font-size: 7vw; letter-spacing: 0.15em; }
+    .cloud-icon { width: 9vw; height: 9vw; margin-right: 2vw; }
+    .main-subtitle { font-size: 3vw; margin-top: 1vw; }
+
+    /* ── 태양 ── */
+    .sun {
+        width: 38vw;
+        height: 38vw;
+        top: -8vw;
+        right: -8vw;
+    }
+
+    /* ── 컨테이너 ── */
+    .container {
+        padding: 28vw 0 8vw 0;
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 20vw, black 24vw);
+        mask-image: linear-gradient(to bottom, transparent 0, transparent 20vw, black 24vw);
+    }
+
+    /* ── 구름 돌 ── */
+    .stone {
+        width: 88vw;
+        padding: 12vw 0;
+        margin: 3vw 0;
+    }
+
+    .stone-text {
+        font-size: 6.5vw;
+        letter-spacing: 0.12em;
+    }
+
+    .biz-info { font-size: 3.5vw; }
+    .biz-info h3 { font-size: 8vw; margin-bottom: 4vw; }
+    .biz-info p { margin-bottom: 2vw; }
+
+    /* info-stone 호버 패딩 고정 */
+    .info-stone:hover { padding: 12vw 0; }
+
+    /* ── 갤러리 버튼 (BACK / PREV / NEXT / 페이지) ── */
+    .gallery-btn {
+        padding: 3.5vw 7vw;
+        font-size: 3.5vw;
+        border-radius: 10vw;
+    }
+    #page-info { top: 3vw; left: 3vw; }
+    #back-btn  { top: 3vw; right: 3vw; }
+    #prev-btn  { bottom: 3vw; left: 3vw; }
+    #next-btn  { bottom: 3vw; right: 3vw; }
+
+    /* ── 갤러리 오버레이 레이아웃: 세로 배치 ── */
+    .gallery-content-wrapper {
+        flex-direction: column;
+        width: 92vw;
+        height: 88vh;
+        gap: 3vw;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 16vw;
+        overflow-y: auto;
+    }
+
+    .gallery-left-col,
+    .gallery-content-wrapper.has-info .gallery-left-col,
+    .gallery-content-wrapper.no-info .gallery-left-col {
+        width: 100%;
+        height: auto;
+        max-height: 42vw;
+        flex-shrink: 0;
+    }
+
+    .gallery-image-container {
+        height: 42vw;
+    }
+
+    .gallery-image-container img {
+        max-height: 42vw;
+        border-radius: 10px;
+    }
+
+    /* 사이드바: 세로 배치 시 하단에 표시 */
+    .gallery-right-col {
+        width: 100%;
+        max-height: none;
+        padding: 20px;
+        border-radius: 16px;
+        margin-bottom: 16vw;
+        transform: translateX(0);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+
+    .gallery-content-wrapper.has-info .gallery-right-col {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    #sidebar-title { font-size: 1.4rem; margin-bottom: 12px; }
+    .sidebar-synopsis-container { font-size: 0.95rem; }
+    .sidebar-meta-row { font-size: 0.9rem; flex-wrap: wrap; gap: 6px; }
+    .sidebar-interactive-row { padding: 10px 14px; }
+    .stars-label { font-size: 0.85rem; }
+    .stars-input .star { font-size: 1.1rem; }
+    .favorite-btn { font-size: 0.85rem; padding: 6px 12px; }
+    #sidebar-tags { margin-top: 12px; }
+    .info-tag { font-size: 0.82rem; padding: 4px 10px; }
+
+    /* ── 정보 모달 (더 보기) ── */
+    .info-card {
+        width: 94%;
+        padding: 24px 20px;
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .info-title { font-size: 1.5rem; }
+    .info-text { font-size: 0.95rem; }
+
+    /* ── 게시판 오버레이 ── */
+    #board-back-btn {
+        top: 3vw;
+        right: 3vw;
+        padding: 3.5vw 7vw;
+        font-size: 3.5vw;
+        border-radius: 10vw;
+    }
+
+    #board-container {
+        width: 94vw;
+        height: 86vh;
+        padding: 20px 18px;
+        border-radius: 20px;
+        margin-top: 12vw;
+    }
+
+    .board-title { font-size: 1.3rem; }
+    .board-subtitle { font-size: 0.82rem; }
+
+    .board-action-btn,
+    .board-secondary-btn {
+        padding: 8px 16px;
+        font-size: 0.88rem;
+    }
+
+    .post-list-header {
+        grid-template-columns: 36px 1fr 70px 70px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
+    }
+
+    .post-item {
+        grid-template-columns: 36px 1fr 70px 70px;
+        padding: 10px 10px;
+    }
+
+    .post-title-text { font-size: 0.92rem; }
+    .post-author-cell,
+    .post-date-cell { font-size: 0.75rem; }
+
+    .board-input { font-size: 0.92rem; padding: 10px 14px; }
+    .board-textarea { font-size: 0.92rem; padding: 12px 14px; }
+
+    .board-delete-btn { padding: 7px 12px; font-size: 0.82rem; }
+
+    /* ── 보러가기 돌 ── */
+    .streaming-title { font-size: 6vw; margin-bottom: 4vw; }
+    .ott-buttons { gap: 3vw; margin-bottom: 5vw; flex-wrap: wrap; justify-content: center; }
+    .ott-btn { font-size: 3.8vw; padding: 2.5vw 5.5vw; }
+    .streaming-disclaimer { font-size: 2.8vw; }
+
+    #top-btn {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 45px;
+        font-size: 13px;
+    }
+}
+
+/* 아주 작은 화면 (375px 미만) 추가 대응 */
+@media (max-width: 375px) {
+    .main-title { font-size: 8.5vw; }
+    .cloud-icon { width: 11vw; height: 11vw; }
+    .main-subtitle { font-size: 3.5vw; }
+    .stone { width: 92vw; padding: 14vw 0; }
+    .stone-text { font-size: 7.5vw; }
+    .post-list-header,
+    .post-item { grid-template-columns: 30px 1fr 60px 60px; }
+}
+

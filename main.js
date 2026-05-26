@@ -1,3 +1,17 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyC1ReelpKjcjbMz_0wYZt1hslbmOxDEyMI",
+  authDomain: "mwmw-273aa.firebaseapp.com",
+  projectId: "mwmw-273aa",
+  storageBucket: "mwmw-273aa.firebasestorage.app",
+  messagingSenderId: "510760075011",
+  appId: "1:510760075011:web:59ab9f624a96da807cf336",
+  measurementId: "G-GGG8L2JBWX"
+};
+
+// Use Firebase Compat API for local file:// protocol
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.getElementById('custom-cursor');
     const stones = document.querySelectorAll('.stone');
@@ -232,6 +246,39 @@ document.addEventListener('DOMContentLoaded', () => {
                     age: '15',
                     rating: '4.6',
                     rankBadge: '추억의 레전드 판타지'
+                },
+                {
+                    image: 'rezero.png',
+                    title: 'Re:제로부터 시작하는<br>이세계 생활',
+                    synopsis: '편의점에서 돌아오던 평범한 청년 \'나츠키 스바루\'는 갑자기 이세계로 소환됩니다. 아무런 능력도 없이 낯선 세계에 던져진 스바루는 은발의 미소녀 \'에밀리아\'에게 도움을 받습니다. 하지만 그날 밤, 두 사람은 의문의 습격자에게 살해당하고 맙니다. 그런데 스바루는 죽음의 직전으로 되돌아가는 \'사망귀환\'이라는 능력을 갖고 있었습니다. 소중한 사람들을 지키기 위해 혼자서 몇 번이고 죽음을 반복하며 나아가는 스바루의 처절하고도 뜨거운 이세계 생존기가 펼쳐집니다.',
+                    tags: ['#판타지', '#이세계', '#다크 판타지', '#루프물', '#성장물', '#드라마', '#액션'],
+                    genres: '판타지·이세계·드라마',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.8',
+                    rankBadge: '이세계 명작 1위'
+                },
+                {
+                    image: 'tensura.png',
+                    title: '전생했더니 슬라임이었던<br>건에 대하여',
+                    synopsis: '37세의 평범한 회사원 \'미카미 사토루\'는 어느 날 갑작스러운 사고로 사망하고, 눈을 뜨니 이세계의 최약체 몬스터인 \'슬라임\'으로 환생해 있습니다. 하지만 스바루는 유니크 스킬 \'포식자\'와 현자 \'라파엘\'의 힘을 얻어 다양한 능력을 흡수하고 성장합니다. \'리무루 템페스트\'라는 이름을 얻은 그는 개성 넘치는 몬스터 동료들과 함께 종족을 초월한 공생의 나라를 세워나갑니다. 최강의 슬라임이 벌이는 유쾌하고 통쾌한 이세계 건국 판타지입니다.',
+                    tags: ['#판타지', '#이세계', '#먼치킨', '#성장물', '#전생물', '#국가건설', '#코미디'],
+                    genres: '판타지·이세계·먼치킨',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.7',
+                    rankBadge: '이세계 전생물 인기 1위'
+                },
+                {
+                    image: 'hxh.png',
+                    title: '헌터X헌터',
+                    synopsis: '전설적인 헌터인 아버지를 찾아 떠나는 소년 \'곤 프릭스\'. 헌터 시험을 통해 운명적으로 만난 \'킬루아\', \'쿠라피카\', \'레오리오\'와 함께 다양한 모험을 펼쳐나갑니다. 살아있는 세계에서 죽을 것 같은 흥분을 쫓는 킬루아와 일족의 복수를 꿈꾸는 쿠라피카, 그리고 의사를 꿈꾸는 레오리오까지. 각자의 목표를 향해 나아가는 네 소년의 성장과 우정, 그리고 숨 막히는 배틀이 어우러진 불후의 명작입니다. 넨(念) 능력 시스템의 정교한 묘사와 깊이 있는 캐릭터들로 수많은 팬들의 사랑을 받고 있습니다.',
+                    tags: ['#판타지', '#액션', '#성장물', '#우정', '#배틀물', '#능력물', '#올타임 명작'],
+                    genres: '판타지·액션·모험',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.9',
+                    rankBadge: '역대 소년 만화 명작'
                 }
             ]
         },
@@ -259,17 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     age: '12',
                     rating: '4.9',
                     rankBadge: '라프텔 평점 1위'
-                },
-                {
-                    image: 'kaguyasama.png',
-                    title: '카구야 님은 고백받고 싶어',
-                    synopsis: '명문 수치인 학원의 학생회 회장 \'시로가네 미유키\'와 부회장 \'시노미야 카구야\'. 서로에게 강하게 이끌리고 있음에도 불구하고, 자존심이 너무 강해 먼저 고백하지 못하는 두 천재. 이들은 상대방으로부터 고백을 받아내기 위해 고도의 두뇌 싸움과 연애 공방전을 펼치기 시작합니다. 매화 기발한 심리전과 개성 있는 학생회 멤버들의 일상이 어우러진 러브 코미디 명작입니다.',
-                    tags: ['#코미디', '#로맨스', '#일상', '#학원물', '#럽코', '#두뇌싸움', '#심리전'],
-                    genres: '코미디·로맨스·학원',
-                    medium: 'TVA',
-                    age: '15',
-                    rating: '4.9',
-                    rankBadge: '인기 러브코미디'
                 },
                 {
                     image: 'saikikusuo.png',
@@ -414,6 +450,17 @@ document.addEventListener('DOMContentLoaded', () => {
             hasInfo: true,
             items: [
                 {
+                    image: 'kaguyasama.png',
+                    title: '카구야 님은 고백받고 싶어',
+                    synopsis: '명문 수치인 학원의 학생회 회장 \'시로가네 미유키\'와 부회장 \'시노미야 카구야\'. 서로에게 강하게 이끌리고 있음에도 불구하고, 자존심이 너무 강해 먼저 고백하지 못하는 두 천재. 이들은 상대방으로부터 고백을 받아내기 위해 고도의 두뇌 싸움과 연애 공방전을 펼치기 시작합니다. 매화 기발한 심리전과 개성 있는 학생회 멤버들의 일상이 어우러진 러브 코미디 명작입니다.',
+                    tags: ['#코미디', '#로맨스', '#일상', '#학원물', '#럽코', '#두뇌싸움', '#심리전'],
+                    genres: '코미디·로맨스·학원',
+                    medium: 'TVA',
+                    age: '15',
+                    rating: '4.9',
+                    rankBadge: '인기 러브코미디'
+                },
+                {
                     image: 'toradora.png',
                     title: '토라도라!',
                     synopsis: '겉모습은 무섭지만 사실 순한 소년 \'타이가 료지\'와 작은 체구에 사나운 성격의 소녀 \'아이사카 타이가\'. 서로의 짝사랑을 이루어주기 위해 협력하던 두 사람은 함께 시간을 보내며 점차 진심을 깨달아 가기 시작합니다. 오해와 질투, 솔직하지 못한 감정들이 뒤엉키며 달콤 쌉싸름하게 펼쳐지는 청춘 러브코미디의 명작입니다. 섬세한 감정 묘사와 매력적인 캐릭터들로 로맨스 애니의 정점으로 손꼽힙니다.',
@@ -512,7 +559,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateGallery = () => {
         const activeItem = activeStoneData.items[currentImageIndex];
         galleryImg.src = activeItem.image;
+        // 접근성: 현재 작품명을 alt 텍스트로 설정 (HTML 태그 제거)
+        galleryImg.alt = activeItem.title
+            ? activeItem.title.replace(/<[^>]*>/g, '') + ' 포스터 이미지'
+            : '애니메이션 갤러리 이미지';
         pageInfo.textContent = `${currentImageIndex + 1} / ${activeStoneData.items.length}`;
+
+        // 🚀 성능 최적화: 이전/다음 사진을 뒤에서 몰래 미리 불러오기 (Preload)
+        if (activeStoneData.items.length > 1) {
+            const nextIdx = (currentImageIndex + 1) % activeStoneData.items.length;
+            const prevIdx = (currentImageIndex - 1 + activeStoneData.items.length) % activeStoneData.items.length;
+            const preloadNext = new Image(); preloadNext.src = activeStoneData.items[nextIdx].image;
+            const preloadPrev = new Image(); preloadPrev.src = activeStoneData.items[prevIdx].image;
+        }
 
         if (activeStoneData.hasInfo) {
             // Update layout wrapper classes
@@ -683,6 +742,43 @@ document.addEventListener('DOMContentLoaded', () => {
         updateGallery();
     });
 
+    // ── 키보드 접근성: 방향키 탐색 + ESC 닫기 ────────────────
+    document.addEventListener('keydown', (e) => {
+        // 텍스트 입력 중에는 무시
+        const tag = document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+        const galleryOpen = galleryOverlay.classList.contains('active');
+        const boardOpen   = boardOverlay.classList.contains('active');
+        const infoOpen    = infoOverlay.classList.contains('active');
+
+        if (e.key === 'Escape') {
+            // 우선순위: 정보 모달 → 갤러리 → 게시판
+            if (infoOpen) {
+                infoOverlay.classList.remove('active');
+            } else if (galleryOpen) {
+                galleryOverlay.classList.remove('active');
+                document.body.classList.remove('gallery-active');
+            } else if (boardOpen) {
+                boardOverlay.classList.remove('active');
+                document.body.classList.remove('gallery-active');
+            }
+            return;
+        }
+
+        if (galleryOpen && !infoOpen) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                currentImageIndex = (currentImageIndex - 1 + activeStoneData.items.length) % activeStoneData.items.length;
+                updateGallery();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                currentImageIndex = (currentImageIndex + 1) % activeStoneData.items.length;
+                updateGallery();
+            }
+        }
+    });
+
     // Info Modal Event Listeners
     moreBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -792,13 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const deletePostBtn = document.getElementById('delete-post-btn');
 
     let currentPostId = null;
-
-    function getBoardPosts() {
-        return JSON.parse(localStorage.getItem('boardPosts') || '[]');
-    }
-    function saveBoardPosts(posts) {
-        localStorage.setItem('boardPosts', JSON.stringify(posts));
-    }
+    let currentPosts = []; // Store posts in memory
 
     function openBoard() {
         boardOverlay.classList.add('active');
@@ -817,9 +907,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById(viewId).classList.add('active');
     }
 
-    function showListView() {
+    async function showListView() {
         setView('board-list-view');
-        renderPostList();
+        await renderPostList();
     }
     function showWriteView() {
         setView('board-write-view');
@@ -828,7 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('post-content-input').value = '';
     }
     function showDetailView(postId) {
-        const post = getBoardPosts().find(p => p.id === postId);
+        const post = currentPosts.find(p => p.id === postId);
         if (!post) return;
         currentPostId = postId;
         setView('board-detail-view');
@@ -838,24 +928,41 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('detail-content').textContent = post.content;
     }
 
-    function renderPostList() {
-        const posts    = getBoardPosts();
+    async function renderPostList() {
         const listEl   = document.getElementById('post-list');
         const emptyEl  = document.getElementById('post-empty');
-        listEl.innerHTML = '';
-        if (posts.length === 0) { emptyEl.style.display = 'block'; return; }
-        emptyEl.style.display = 'none';
-        posts.slice().reverse().forEach((post, idx) => {
-            const item = document.createElement('div');
-            item.className = 'post-item';
-            item.innerHTML = `
-                <span class="post-num">${posts.length - idx}</span>
-                <span class="post-title-text">${post.title}</span>
-                <span class="post-author-cell">${post.author}</span>
-                <span class="post-date-cell">${post.date}</span>`;
-            item.addEventListener('click', (e) => { e.stopPropagation(); showDetailView(post.id); });
-            listEl.appendChild(item);
-        });
+        listEl.innerHTML = '<div style="text-align: center; padding: 40px; color: rgba(255,255,255,0.6);">데이터를 불러오는 중입니다...</div>';
+        
+        try {
+            const querySnapshot = await db.collection("posts").orderBy("createdAt", "desc").get();
+            
+            currentPosts = [];
+            querySnapshot.forEach((doc) => {
+                currentPosts.push({ id: doc.id, ...doc.data() });
+            });
+
+            listEl.innerHTML = '';
+            if (currentPosts.length === 0) { 
+                emptyEl.style.display = 'block'; 
+                return; 
+            }
+            emptyEl.style.display = 'none';
+            
+            currentPosts.forEach((post, idx) => {
+                const item = document.createElement('div');
+                item.className = 'post-item';
+                item.innerHTML = `
+                    <span class="post-num">${currentPosts.length - idx}</span>
+                    <span class="post-title-text">${post.title}</span>
+                    <span class="post-author-cell">${post.author}</span>
+                    <span class="post-date-cell">${post.date}</span>`;
+                item.addEventListener('click', (e) => { e.stopPropagation(); showDetailView(post.id); });
+                listEl.appendChild(item);
+            });
+        } catch (error) {
+            console.error("Error fetching posts:", error);
+            listEl.innerHTML = '<div style="text-align: center; padding: 40px; color: rgba(255,100,100,0.8);">데이터를 불러오는 데 실패했습니다.</div>';
+        }
     }
 
     // Board event listeners
@@ -864,23 +971,71 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelWriteBtn.addEventListener('click',(e) => { e.stopPropagation(); showListView(); });
     backToListBtn.addEventListener('click', (e) => { e.stopPropagation(); showListView(); });
 
-    submitPostBtn.addEventListener('click', (e) => {
+    submitPostBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
         const title   = document.getElementById('post-title-input').value.trim();
         const author  = document.getElementById('post-author-input').value.trim() || '익명';
         const content = document.getElementById('post-content-input').value.trim();
         if (!title || !content) { alert('제목과 내용을 입력해주세요.'); return; }
-        const posts = getBoardPosts();
-        posts.push({ id: Date.now(), title, author, content, date: new Date().toLocaleDateString('ko-KR') });
-        saveBoardPosts(posts);
-        showListView();
+        
+        submitPostBtn.disabled = true;
+        submitPostBtn.textContent = '등록 중...';
+        
+        try {
+            await db.collection("posts").add({
+                title,
+                author,
+                content,
+                date: new Date().toLocaleDateString('ko-KR'),
+                createdAt: Date.now()
+            });
+            await showListView();
+        } catch (error) {
+            console.error("Error adding post:", error);
+            alert("글 등록에 실패했습니다.");
+        } finally {
+            submitPostBtn.disabled = false;
+            submitPostBtn.textContent = '등록하기';
+        }
     });
 
-    deletePostBtn.addEventListener('click', (e) => {
+    deletePostBtn.addEventListener('click', async (e) => {
         e.stopPropagation();
         if (!confirm('이 게시글을 삭제하시겠습니까?')) return;
-        saveBoardPosts(getBoardPosts().filter(p => p.id !== currentPostId));
-        showListView();
+        
+        deletePostBtn.disabled = true;
+        deletePostBtn.textContent = '삭제 중...';
+        
+        try {
+            await db.collection("posts").doc(currentPostId).delete();
+            await showListView();
+        } catch (error) {
+            console.error("Error deleting post:", error);
+            alert("글 삭제에 실패했습니다.");
+        } finally {
+            deletePostBtn.disabled = false;
+            deletePostBtn.textContent = '🗑️ 삭제';
+        }
     });
+
+    // ── TOP Button Logic ──
+    const topBtn = document.getElementById('top-btn');
+    if (topBtn) {
+        window.addEventListener('scroll', () => {
+            // Show button when scrolled down 200px
+            if (window.scrollY > 200) {
+                topBtn.classList.add('visible');
+            } else {
+                topBtn.classList.remove('visible');
+            }
+        });
+
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
 });
 
